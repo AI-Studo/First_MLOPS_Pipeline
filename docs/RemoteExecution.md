@@ -98,12 +98,12 @@ In order for the agent to pull your code, it needs access to your repositories. 
     2. Under the **Orchestration** section, go to **queues**, and click **+ New Queue** (you will find this button on the top right side of the page)
     3. Enter the queue name in `lower case` and remember it
 
-7. Run clearml-agent:
+7. Run clearml-agent (replace queue_name with your queue's name, --detached to ensure the agent run as a background process, allowing you to continue using the command line or execute other tasks without having to keep the terminal session open):
     ```
     !clearml-agent daemon --queue "queue_name" --detached
     ```
     Make sure to type the correct queue name.
-8. Run clearml-agent:
+8. Stop detached clearml-agent (You need this to stop detached agent before rerun it again):
     ```
     !clearml-agent daemon --queue "gitarth" --detached --stop
     ```
@@ -112,7 +112,7 @@ In order for the agent to pull your code, it needs access to your repositories. 
 1. Fork and Clone a Repository (use this repository to try)
 2. Using Any IDE, make sure that clearml is initialised. Follow: [ClearML Setup](https://github.com/GitarthVaishnav/First_Pipeline/blob/master/docs/Clearml_Setup.md)
 
-### Implement a Task:
+### Implement a Task: Edit the following code in the upload_cifar_raw.py file.
 1. Implement a task (one is already implemented for you - check: [upload_cifar_raw.py](https://github.com/GitarthVaishnav/First_Pipeline/blob/113cf6b2dd15ad5b1896fa78f437830e5f6582c4/first_mlops_pipeline/upload_cifar_raw.py))
 
     ```python
@@ -126,6 +126,33 @@ In order for the agent to pull your code, it needs access to your repositories. 
     This line `task.execute_remotely(queue_name="queue_name", exit_process=True)` is very important to execute a task remotely. Once you initialise a task, please make sure to have this line in the scope of the task.
     
     Note: Replace  `"queue_name"` with the actual Queue Name.
+
+
+### Set up the environment
+## If running with poetry venv:
+```
+!curl -ssl https://install.python-poetry.org | python3 -
+!/root/.local/bin/poetry update
+!/root/.local/bin/poetry run pip install clearml
+!/root/.local/bin/poetry run python first_mlops_pipeline/upload_cifar_raw.py --dataset_project TrialProject1 --dataset_name Cifar10RawData
+```
+### Since the legacy shell and export is longer installed by default with poetry 2.0, you should install them by using following command (more details in https://python-poetry.org/docs/cli/#export)
+```
+!/root/.local/bin/poetry self add poetry-plugin-export
+!/root/.local/bin/poetry self add poetry-plugin-shell
+```
+
+## If running with colab/local env, you need export the poetry.lock into requirements.txt file to contain the required list of packages and their version to install.
+```
+!/root/.local/bin/poetry export -f requirements.txt --output requirements.txt --without-hashes
+# If it shows lock write, you could try:
+!pip install --no-deps --no-cache-dir --no-binary :all: -r requirements.txt
+```
+## Once yuou have the requirements.txt file generated, run pip install with the file before executing a task.
+![image](https://github.com/user-attachments/assets/1bec4334-5683-4b61-870e-b47a4af51390)
+```
+!pip install -r requirements.txt
+```
 
 ### Execute a task:
 1. Run this task for the first time:
