@@ -98,12 +98,12 @@ In order for the agent to pull your code, it needs access to your repositories. 
     2. Under the **Orchestration** section, go to **queues**, and click **+ New Queue** (you will find this button on the top right side of the page)
     3. Enter the queue name in `lower case` and remember it
 
-7. Run clearml-agent:
+7. Run clearml-agent (replace queue_name with your queue's name, --detached to ensure the agent run as a background process, allowing you to continue using the command line or execute other tasks without having to keep the terminal session open. 
     ```
     !clearml-agent daemon --queue "queue_name" --detached
     ```
     Make sure to type the correct queue name.
-8. Run clearml-agent:
+8. Stop detached clearml-agent (You need this to stop detached agent before rerun it again):
     ```
     !clearml-agent daemon --queue "gitarth" --detached --stop
     ```
@@ -113,7 +113,7 @@ In order for the agent to pull your code, it needs access to your repositories. 
 2. Using Any IDE, make sure that clearml is initialised. Follow: [ClearML Setup](https://github.com/GitarthVaishnav/First_Pipeline/blob/master/docs/Clearml_Setup.md)
 
 ### Implement a Task:
-1. Implement a task (one is already implemented for you - check: [upload_cifar_raw.py](https://github.com/GitarthVaishnav/First_Pipeline/blob/113cf6b2dd15ad5b1896fa78f437830e5f6582c4/first_mlops_pipeline/upload_cifar_raw.py))
+1. Implement a task: Edit the following code in the upload_cifar_raw.py file. (one is already implemented for you - check: [upload_cifar_raw.py](https://github.com/GitarthVaishnav/First_Pipeline/blob/113cf6b2dd15ad5b1896fa78f437830e5f6582c4/first_mlops_pipeline/upload_cifar_raw.py))
 
     ```python
     task = Task.init(
@@ -126,6 +126,14 @@ In order for the agent to pull your code, it needs access to your repositories. 
     This line `task.execute_remotely(queue_name="queue_name", exit_process=True)` is very important to execute a task remotely. Once you initialise a task, please make sure to have this line in the scope of the task.
     
     Note: Replace  `"queue_name"` with the actual Queue Name.
+### Set up the environment
+## If running with poetry venv:
+
+xxx
+
+## If running with colab/local env:
+cc
+
 
 ### Execute a task:
 1. Run this task for the first time:
