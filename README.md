@@ -14,12 +14,12 @@
   <p align="center">
     An automated MLOps workflow for CIFAR-10 dataset classification using ClearML
     <br />
-    <a href="https://github.com/GitarthVaishnav/First_MLOPS_Pipeline"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/AI-Studo/First_MLOPS_Pipeline"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/GitarthVaishnav/First_MLOPS_Pipeline/issues">Report Bug</a>
+    <a href="https://github.com/AI-Studo/First_MLOPS_Pipeline/issues">Report Bug</a>
     ·
-    <a href="https://github.com/GitarthVaishnav/First_MLOPS_Pipeline/issues">Request Feature</a>
+    <a href="https://github.com/AI-Studo/First_MLOPS_Pipeline/issues">Request Feature</a>
   </p>
 </div>
 
@@ -71,10 +71,10 @@ This project automates the process of managing a dataset, training and evaluatin
 
 
 ### Option 1: Remotely Execute Steps:
-Follow the instructions in this document to run steps remotely: [Remote Execution](https://github.com/GitarthVaishnav/First_Pipeline/blob/master/docs/RemoteExecution.md)
+Follow the instructions in this document to run steps remotely: [Remote Execution](https://github.com/AI-Studo/First_Pipeline/blob/master/docs/RemoteExecution.md)
 
 ### Option 2: Locally Execute Steps [NOT RECOMMENDED]:
-Follow the instructions in this document to run steps locally: [Local Execution](https://github.com/GitarthVaishnav/First_Pipeline/blob/master/docs/LocalExecution.md)
+Follow the instructions in this document to run steps locally: [Local Execution](https://github.com/AI-Studo/First_Pipeline/blob/master/docs/LocalExecution.md)
 
 
 <!-- USAGE -->
@@ -106,32 +106,27 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Gitarth Vaishnav - [@GitarthVaishnav](https://linkedin.com/in/gitarthvaishnav)
+Github Link: [@AI-Studo](https://github.com/AI-Studo/)
 
-Email: Gitarthv@outlook.com | Gitarth.Vaishnav@uts.edu.au
-
-
-Github Link: [@GitarthVaishnav](https://github.com/GitarthVaishnav/)
-
-Project Link: [https://github.com/GitarthVaishnav/First_MLOPS_Pipeline](https://github.com/GitarthVaishnav/First_MLOPS_Pipeline)
+Project Link: [https://github.com/AI-Studo/First_MLOPS_Pipeline](https://github.com/AI-Studo/First_MLOPS_Pipeline)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/GitarthVaishnav/First_MLOPS_Pipeline.svg?style=for-the-badge
-[contributors-url]: https://github.com/GitarthVaishnav/First_MLOPS_Pipeline/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/GitarthVaishnav/First_MLOPS_Pipeline.svg?style=for-the-badge
-[forks-url]: https://github.com/GitarthVaishnav/First_MLOPS_Pipeline/network/members
-[stars-shield]: https://img.shields.io/github/stars/GitarthVaishnav/First_MLOPS_Pipeline.svg?style=for-the-badge
-[stars-url]: https://github.com/GitarthVaishnav/First_MLOPS_Pipeline/stargazers
-[issues-shield]: https://img.shields.io/github/issues/GitarthVaishnav/First_MLOPS_Pipeline.svg?style=for-the-badge
-[issues-url]: https://github.com/GitarthVaishnav/First_MLOPS_Pipeline/issues
-[license-shield]: https://img.shields.io/github/license/GitarthVaishnav/First_MLOPS_Pipeline.svg?style=for-the-badge
-[license-url]: https://github.com/GitarthVaishnav/First_MLOPS_Pipeline/blob/master/LICENCE
+[contributors-shield]: https://img.shields.io/github/contributors/AI-Studo/First_MLOPS_Pipeline.svg?style=for-the-badge
+[contributors-url]: https://github.com/AI-Studo/First_MLOPS_Pipeline/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/AI-Studo/First_MLOPS_Pipeline.svg?style=for-the-badge
+[forks-url]: https://github.com/AI-Studo/First_MLOPS_Pipeline/network/members
+[stars-shield]: https://img.shields.io/github/stars/AI-Studo/First_MLOPS_Pipeline.svg?style=for-the-badge
+[stars-url]: https://github.com/AI-Studo/First_MLOPS_Pipeline/stargazers
+[issues-shield]: https://img.shields.io/github/issues/AI-Studo/First_MLOPS_Pipeline.svg?style=for-the-badge
+[issues-url]: https://github.com/AI-Studo/First_MLOPS_Pipeline/issues
+[license-shield]: https://img.shields.io/github/license/AI-Studo/First_MLOPS_Pipeline.svg?style=for-the-badge
+[license-url]: https://github.com/AI-Studo/First_MLOPS_Pipeline/blob/master/LICENCE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/gitarthvaishnav
+[linkedin-url]: https://linkedin.com/in/AI-Studo
 [Python.org]:https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [Python-url]: https://python.org
 [OpenCV.org]:https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white
