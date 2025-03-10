@@ -71,10 +71,10 @@ This project automates the process of managing a dataset, training and evaluatin
 
 
 ### Option 1: Remotely Execute Steps:
-Follow the instructions in this document to run steps remotely: [Remote Execution](https://github.com/AI-Studo/First_Pipeline/blob/master/docs/RemoteExecution.md)
+Follow the instructions in this document to run steps remotely: [Remote Execution](https://github.com/AI-Studo/First_MLOPS_Pipeline/blob/master/docs/RemoteExecution.md)
 
 ### Option 2: Locally Execute Steps [NOT RECOMMENDED]:
-Follow the instructions in this document to run steps locally: [Local Execution](https://github.com/AI-Studo/First_Pipeline/blob/master/docs/LocalExecution.md)
+Follow the instructions in this document to run steps locally: [Local Execution](https://github.com/AI-Studo/First_MLOPS_Pipeline/blob/master/docs/LocalExecution.md)
 
 
 <!-- USAGE -->
