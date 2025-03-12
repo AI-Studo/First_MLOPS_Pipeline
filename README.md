@@ -76,7 +76,8 @@ Follow the instructions in this document to run steps remotely: [Remote Executio
 ### Option 2: Locally Execute Steps [NOT RECOMMENDED]:
 Follow the instructions in this document to run steps locally: [Local Execution](https://github.com/AI-Studo/First_MLOPS_Pipeline/blob/master/docs/LocalExecution.md)
 
-
+### Notes [IMPORTANT]:
+You need change all the queue name and repo setting in all python files under the *first_mlops_pipeline* folder
 <!-- USAGE -->
 ## Usage
 
