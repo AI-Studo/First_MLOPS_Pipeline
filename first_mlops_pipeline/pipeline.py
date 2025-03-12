@@ -1,26 +1,13 @@
 from clearml import PipelineController, Task
 
 from first_mlops_pipeline.evaluate_model import evaluate_model, log_debug_images
-from first_mlops_pipeline.preprocess_upload_cifar10 import (
-    preprocess_and_upload_cifar10,
-    save_preprocessed_data,
-)
+from first_mlops_pipeline.preprocess_upload_cifar10 import preprocess_and_upload_cifar10, save_preprocessed_data
 from first_mlops_pipeline.train_model import train_model
 from first_mlops_pipeline.update_model import (
-    archive_existing_model,
-    cleanup_repo,
-    clone_repo,
-    commit_and_push,
-    configure_ssh_key,
-    ensure_archive_dir,
-    update_model,
-    update_weights,
+    archive_existing_model, cleanup_repo, clone_repo, commit_and_push,
+    configure_ssh_key, ensure_archive_dir, update_model, update_weights
 )
-from first_mlops_pipeline.upload_cifar_raw import (
-    save_numpy_arrays,
-    upload_cifar10_as_numpy,
-)
-
+from first_mlops_pipeline.upload_cifar_raw import save_numpy_arrays, upload_cifar10_as_numpy
 
 def create_cifar10_pipeline(
     epochs: int = 10,
@@ -28,34 +15,11 @@ def create_cifar10_pipeline(
     dataset_project: str = "CIFAR-10 Project",
     raw_dataset_name: str = "CIFAR-10 Raw",
     processed_dataset_name: str = "CIFAR-10 Preprocessed",
-    env_path: str = "/path/to/.env",
-    repo_url: str = "git@github.com:YourUser/YourRepo.git",
+    env_path: str = "/content/First_MLOPS_Pipeline/.env",
+    repo_url: str = "git@github.com:ZoeLinUTS/AI-Studo/First_MLOPS_Pipeline.git",
     development_branch: str = "development",
+    queue_name: str = "ge2025"  # Specify the queue name here for use in all tasks
 ):
-    from clearml import PipelineController, Task
-
-    from first_mlops_pipeline.evaluate_model import evaluate_model, log_debug_images
-    from first_mlops_pipeline.preprocess_upload_cifar10 import (
-        preprocess_and_upload_cifar10,
-        save_preprocessed_data,
-    )
-    from first_mlops_pipeline.train_model import train_model
-    from first_mlops_pipeline.update_model import (
-        archive_existing_model,
-        cleanup_repo,
-        clone_repo,
-        commit_and_push,
-        configure_ssh_key,
-        ensure_archive_dir,
-        update_model,
-        update_weights,
-    )
-    from first_mlops_pipeline.upload_cifar_raw import (
-        save_numpy_arrays,
-        upload_cifar10_as_numpy,
-    )
-
-    # Initialize a new pipeline controller task
     pipeline = PipelineController(
         name=pipeline_name,
         project=dataset_project,
@@ -65,18 +29,15 @@ def create_cifar10_pipeline(
         target_project=dataset_project,
     )
 
-    # Add pipeline-level parameters with defaults from function arguments
     pipeline.add_parameter(name="epochs", default=epochs)
     pipeline.add_parameter(name="dataset_project", default=dataset_project)
     pipeline.add_parameter(name="raw_dataset_name", default=raw_dataset_name)
-    pipeline.add_parameter(
-        name="processed_dataset_name", default=processed_dataset_name
-    )
+    pipeline.add_parameter(name="processed_dataset_name", default=processed_dataset_name)
     pipeline.add_parameter(name="env_path", default=env_path)
     pipeline.add_parameter(name="REPO_URL", default=repo_url)
     pipeline.add_parameter(name="DEVELOPMENT_BRANCH", default=development_branch)
 
-    # Step 1: Upload CIFAR-10 Raw Data
+    # Specify the queue for each pipeline step
     pipeline.add_function_step(
         name="upload_cifar10_raw_data",
         function=upload_cifar10_as_numpy,
@@ -86,12 +47,12 @@ def create_cifar10_pipeline(
         },
         task_type=Task.TaskTypes.data_processing,
         task_name="Upload CIFAR-10 Raw Data",
+        execution_queue=queue_name,  # Using queue_name variable here
         function_return=["raw_dataset_id"],
         helper_functions=[save_numpy_arrays],
         cache_executed_step=False,
     )
 
-    # Step 2: Preprocess CIFAR-10 Data
     pipeline.add_function_step(
         name="preprocess_cifar10_data",
         function=preprocess_and_upload_cifar10,
@@ -102,12 +63,12 @@ def create_cifar10_pipeline(
         },
         task_type=Task.TaskTypes.data_processing,
         task_name="Preprocess and Upload CIFAR-10",
+        execution_queue=queue_name,  # Using queue_name variable here
         function_return=["processed_dataset_id"],
         helper_functions=[save_preprocessed_data],
         cache_executed_step=False,
     )
 
-    # Step 3: Train Model
     pipeline.add_function_step(
         name="train_cifar10_model",
         function=train_model,
@@ -118,11 +79,11 @@ def create_cifar10_pipeline(
         },
         task_type=Task.TaskTypes.training,
         task_name="Train CIFAR-10 Model",
+        execution_queue=queue_name,  # Using queue_name variable here
         function_return=["model_id"],
         cache_executed_step=False,
     )
 
-    # Step 4: Evaluate Model
     pipeline.add_function_step(
         name="evaluate_cifar10_model",
         function=evaluate_model,
@@ -133,11 +94,11 @@ def create_cifar10_pipeline(
         },
         task_type=Task.TaskTypes.testing,
         task_name="Evaluate CIFAR-10 Model",
+        execution_queue=queue_name,  # Using queue_name variable here
         helper_functions=[log_debug_images],
         cache_executed_step=False,
     )
 
-    # Step 5: Update Model in GitHub Repository
     pipeline.add_function_step(
         name="update_model_in_github",
         function=update_model,
@@ -159,9 +120,12 @@ def create_cifar10_pipeline(
         ],
         task_type=Task.TaskTypes.custom,
         task_name="Export Model to GitHub Repository",
+        execution_queue=queue_name,  # Using queue_name variable here
         cache_executed_step=False,
     )
 
-    # Start the pipeline
-    pipeline.start(queue="gitarth")
+    pipeline.start(queue="ge2025")
     print("CIFAR-10 pipeline initiated. Check ClearML for progress.")
+
+if __name__ == "__main__":
+    create_cifar10_pipeline()

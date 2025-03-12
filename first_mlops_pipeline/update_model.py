@@ -189,13 +189,13 @@ if __name__ == "__main__":
         "--env_path",
         # required=True,
         help="Path to the .env file",
-        default="/Users/apple/Desktop/AI_Studio/Introduction_to_MLOPS/First_Pipeline/.env",
+        default="/content/First_MLOPS_Pipeline/.env",
     )
     parser.add_argument(
         "--repo_url",
         # required=True,
         help="Repository URL",
-        default="git@github.com:GitarthVaishnav/Cifar10_SimpleFlaskApp.git",
+        default="git@github.com:ZoeLinUTS/AI-Studo/First_MLOPS_Pipeline.git",
     )
     parser.add_argument(
         "--development_branch",
